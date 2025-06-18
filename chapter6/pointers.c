@@ -59,14 +59,23 @@ int main() {
     */
 
 
-    int  a = 10 ; 
-    printf("Address of a: %p \n " , &a);
-    
+    int a = 10;
+    char character = 'a'; // Correct: single character in single quotes
 
-    int *ptr = &a; // ptr is a pointer to an integer variable 
+    // Pointer to integer
+    int *ptr = &a;
 
-    printf("Address stored in ptr: %p\n", ptr); // prints the address of a
+    // Pointer to character
+    char *p = &character;
 
+    // Print address of a
+    printf("Address of a: %p\n", &a);
+
+    // Print value of character via pointer
+    printf("Value of character: %c\n", *p);
+
+    // Print address stored in ptr (which points to 'a')
+    printf("Address stored in ptr: %p\n", ptr);
 
 
     return 0;
