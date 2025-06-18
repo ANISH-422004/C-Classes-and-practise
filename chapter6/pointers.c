@@ -78,5 +78,33 @@ int main() {
     printf("Address stored in ptr: %p\n", ptr);
 
 
+    /*
+        POINTER TO A POINTER
+    Just like ‘j’ is pointing to ‘i’ or storing the address of ‘i’, we can have another variable k
+    which can further store the address of ‘j’. What will be the type of ‘k’?
+    int **k;
+    k = &j;
+    36
+    We can even go further one level and create a variable ‘l’ of type int*** to store the
+    address of ‘k’. We mostly use int* and int** sometimes in real world programs.
+
+    
+    
+    */
+
+    int i1 = 10;
+    int *j1 = &i1; // j1 is a pointer to i1
+    int **k1 = &j1; // k1 is a pointer to j1
+
+    printf("Address of i1: %p\n", &i1);
+    printf("Value of i1: %d\n", *j1); // Dereference j1 to get the value of i1
+    printf("Address stored in j1: %p\n", j1); // Print address stored in j1
+    printf("Address of j1: %p\n", &j1);
+    printf("Value of j1: %p\n", *k1); // Dereference k1 to get the address stored in j1
+    printf("Value of i1 via k1: %d\n", **k1); // Dereference k1 twice to get the value of i1
+
+
+
+
     return 0;
 }
