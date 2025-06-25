@@ -23,7 +23,7 @@ int main() {
     }
 
     for (int i = 0; i < n; i++) {
-        printf("Integer %d: %d\n", i + 1, ptr[i]); // Print the integers
+        printf("Integer %d: %d\n", i + 1, ptr[i]); // Print the integers  *(ptr+i) == ptr[i]
     }
 
     free(ptr); // Free the allocated memory
