@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdbool.h>
+#include <limits.h>
 
 bool searchElementInArray(int arr[], int size, int element)
 {
@@ -11,6 +12,23 @@ bool searchElementInArray(int arr[], int size, int element)
         }
     }
     return false; // Element not found
+}
+
+
+//  🔹 Function to find second largest element
+int findSecondLargest(int arr[], int size){
+    int first = INT_MIN, second = INT_MIN;
+    for (int i = 0  ; i < size; i++){
+        if (arr[i] > first) first = arr[i];
+    }
+    for (int i = 0; i < size; i++){
+        if( arr[i] == first) arr[i] = INT_MIN; // Ignore the largest element
+    }
+    for (int i = 0; i < size; i++){
+        if (arr[i] > second) second = arr[i];
+    }
+    return second; // Return the second largest element
+
 }
 
 int main()
@@ -145,6 +163,10 @@ int main()
     }
 
 
+    // 🔹 Q10. Find Second Largest Element
+    int arr5[10] = {12, 35, 1, 10, 34, 1};
+    int secondLargest = findSecondLargest(arr5, 6);
+    printf("\nSecond largest element for the array starting form address %p: %d\n",arr ,  secondLargest);
 
     return 0;
 }
