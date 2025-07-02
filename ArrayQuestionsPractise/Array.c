@@ -125,12 +125,12 @@ int main()
     {
         for (int j = i + 1; j < n; j++)
         {
-            if (arr[i] == arr[j])
+            if (arr4[i] == arr4[j])
             {
                 // Shift elements to the left
                 for (int k = j; k < n - 1; k++)
                 {
-                    arr4[k] = arr[k + 1];
+                    arr4[k] = arr4[k + 1];
                 }
                 n--; // Reduce array size
                 j--; // Stay on the same index after shift
