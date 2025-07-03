@@ -15,6 +15,20 @@ void dispalyStudent( Student s)
 
 }
 
+ //Modify a structure inside a function using pointer.
+
+ void modifyStudent(Student *ptr){
+    (*ptr).marks = 90.0;
+    strcpy(ptr->name, "Anish"); // Modifying name using pointer
+    ptr->roll = 2; // Modifying roll number using pointer
+
+    printf("Modified Student Details:\n");
+    dispalyStudent(*ptr); // Display modified student details (passing the value copy)
+
+
+ }
+
+
 int main()
 {
     // poiter Type casting
@@ -54,14 +68,23 @@ int main()
     // }
 
 
-    Student s1 = {1, "John Doe", 85.5};
-    Student s2 = {2, "Jane Smith", 90.0};
-    Student s3 = {3, "Alice Brown", 78.5};
+    // Student s1 = {1, "John Doe", 85.5};
+    // Student s2 = {2, "Jane Smith", 90.0};
+    // Student s3 = {3, "Alice Brown", 78.5};
 
-    // Displaying student details using the function
-    dispalyStudent(s1);
-    dispalyStudent(s2);
-    dispalyStudent(s3);
+    // // Displaying student details using the function
+    // dispalyStudent(s1);
+    // dispalyStudent(s2);
+    // dispalyStudent(s3);
+
+
+    //Modify a structure inside a function using pointer.
+    Student s1 = {1, "John Doe", 85.5};
+    Student *ptr = &s1 ; 
+
+    
+    modifyStudent(ptr); // Passing pointer to the function
+
 
     return 0;
 }
