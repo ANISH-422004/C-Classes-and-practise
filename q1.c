@@ -1,7 +1,7 @@
 // Sort an array of Student structs in ascending order of marks (you can easily reverse for descending).
 #include <stdio.h>
 #include <string.h>
-
+#include <stdbool.h>
 typedef struct student
 {
     int roll;
@@ -53,18 +53,29 @@ void swap ( Student *a , Student *b ){
 
 /*
     undefined reference to `swap`
-ld returned 1 exit status
+    ld returned 1 exit status
+
 💥 This means:
 The compiler saw the declaration of the function swap() — but the linker couldn’t find the actual definition of it anywhere when trying to build the final executable.
 
 */
+
+bool doesStudentExists(Student s[] , int n  , int roll){
+    for (int i = 0; i < n; i++){
+        if (s[i].roll == roll) {
+            return true;
+        }
+    }
+    return false;
+}
+
 
 int main()
 {
     int n = 3;
     Student students[3] = {
         {101, "John", 78.5},
-        {102, "Anish", 92.3},
+        {105, "Anish", 92.3},
         {103, "Raj", 84.0}};
 
     printf("Before sorting:\n");
@@ -74,6 +85,15 @@ int main()
 
     printf("\nAfter sorting by marks:\n");
     displayStudents(students, n);    
+
+    // Check if a student with roll number 102 exists
+    int rollToCheck = 102;
+    if (doesStudentExists(students, n, rollToCheck)) {
+        printf("\nStudent with roll number %d exists.\n", rollToCheck);
+    } else {
+        printf("\nStudent with roll number %d does not exist.\n", rollToCheck);
+    }
+
 
     return 0;
 }
